@@ -1,10 +1,5 @@
 #include "sort.h"
 
-void swap_int(int *a, int *b);
-int partition(int *array, size_t size, int gauche, int droite);
-void sort(int *array, size_t size, int gauche, int droite);
-void quick_sort(int *array, size_t size);
-
 /**
  * swap_int - Swap two integers in an array.
  * @m: The first integer to swap.
