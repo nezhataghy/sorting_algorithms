@@ -29,8 +29,8 @@ void swap_noeuds(listint_t **list, listint_t *premier, listint_t *deuxieme)
  */
 void cocktail_sort_list(listint_t **list)
 {
-	listint_t *my_list;
 	int flag = 0;
+	listint_t *my_list;
 
 	if (!list || !(*list) || !(*list)->next)
 		return;
