@@ -1,9 +1,9 @@
 #include "sort.h"
 /**
- * swap_noeuds - flag the nodes in a list
- * @list: premier noeud in doubly linked list
- * @premier: address of premier noeud
- * @deuxieme: address of deuxieme noeud
+ * nodes_swap - flag the nodes in a list
+ * @list: premier node in doubly linked list
+ * @premier: address of premier node
+ * @deuxieme: address of deuxieme node
  */
 void swap_noeuds(listint_t **list, listint_t *premier, listint_t *deuxieme)
 {
@@ -29,12 +29,13 @@ void swap_noeuds(listint_t **list, listint_t *premier, listint_t *deuxieme)
  */
 void cocktail_sort_list(listint_t **list)
 {
+	listint_t *my_list;
 	int flag = 1;
-	listint_t *my_list = *list;
 
-	if (list == NULL || *list == NULL || (*list)->next == NULL)
+	if (!list || !(*list) || !(*list)->next)
 		return;
 
+	my_list = *list;
 	for (; flag;)
 	{
 		flag = 0;
@@ -42,7 +43,7 @@ void cocktail_sort_list(listint_t **list)
 		{
 			if (my_list->n > my_list->next->n)
 			{
-				swap_noeuds(list, my_list, my_list->next);
+				nodes_swap(list, my_list, my_list->next);
 				print_list(*list);
 				flag = 1;
 				continue;
@@ -58,7 +59,7 @@ void cocktail_sort_list(listint_t **list)
 		{
 			if (my_list->n < my_list->prev->n)
 			{
-				swap_noeuds(list, my_list->prev, my_list);
+				nodes_swap(list, my_list->prev, my_list);
 				print_list(*list);
 				flag = 1;
 				continue;
