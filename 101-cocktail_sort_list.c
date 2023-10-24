@@ -29,38 +29,38 @@ void swap_noeuds(listint_t **list, listint_t *premier, listint_t *deuxieme)
  */
 void cocktail_sort_list(listint_t **list)
 {
-	int flag = 0;
+	int flag = 1;
 	listint_t *my_list = *list;
 
 	if (list == NULL || *list == NULL || (*list)->next == NULL)
 		return;
 
-	for (; !flag;)
+	for (; flag;)
 	{
-		flag = 1;
+		flag = 0;
 		for (; my_list->next;)
 		{
 			if (my_list->n > my_list->next->n)
 			{
 				swap_noeuds(list, my_list, my_list->next);
 				print_list(*list);
-				flag = 0;
+				flag = 1;
 				continue;
 			}
 			my_list = my_list->next;
 		}
 
-		if (flag)
+		if (!flag)
 			break;
 
-		flag = 1;
+		flag = 0;
 		for (; my_list->prev;)
 		{
 			if (my_list->n < my_list->prev->n)
 			{
 				swap_noeuds(list, my_list->prev, my_list);
 				print_list(*list);
-				flag = 0;
+				flag = 1;
 				continue;
 			}
 			my_list = my_list->prev;
