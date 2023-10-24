@@ -7,19 +7,19 @@
  */
 void swap_noeuds(listint_t **list, listint_t *premier, listint_t *deuxieme)
 {
-    if (premier->prev == NULL)
-        *list = deuxieme;
-    else
-        premier->prev->next = deuxieme;
+	if (premier->prev == NULL)
+		*list = deuxieme;
+	else
+		premier->prev->next = deuxieme;
 
-    deuxieme->prev = premier->prev;
+	deuxieme->prev = premier->prev;
 
-    if (deuxieme->next != NULL)
-        deuxieme->next->prev = premier;
+	if (deuxieme->next != NULL)
+		deuxieme->next->prev = premier;
 
-    premier->prev = deuxieme;
-    premier->next = deuxieme->next;
-    deuxieme->next = premier;
+	premier->prev = deuxieme;
+	premier->next = deuxieme->next;
+	deuxieme->next = premier;
 }
 
 /**
@@ -29,41 +29,41 @@ void swap_noeuds(listint_t **list, listint_t *premier, listint_t *deuxieme)
  */
 void cocktail_sort_list(listint_t **list)
 {
-    int flag = 0;
-    listint_t *my_list = *list;
+	int flag = 0;
+	listint_t *my_list = *list;
 
-    if (list == NULL || *list == NULL || (*list)->next == NULL)
-        return;
+	if (list == NULL || *list == NULL || (*list)->next == NULL)
+		return;
 
-    for (; !flag;)
-    {
-        flag = 1;
-        for (; my_list->next;)
-        {
-            if (my_list->n > my_list->next->n)
-            {
-                swap_noeuds(list, my_list, my_list->next);
-                print_list(*list);
-                flag = 0;
-                continue;
-            }
-            my_list = my_list->next;
-        }
+	for (; !flag;)
+	{
+		flag = 1;
+		for (; my_list->next;)
+		{
+			if (my_list->n > my_list->next->n)
+			{
+				swap_noeuds(list, my_list, my_list->next);
+				print_list(*list);
+				flag = 0;
+				continue;
+			}
+			my_list = my_list->next;
+		}
 
-        if (flag)
-            break;
+		if (flag)
+			break;
 
-        flag = 1;
-        for (; my_list->prev;)
-        {
-            if (my_list->n < my_list->prev->n)
-            {
-                swap_noeuds(list, my_list->prev, my_list);
-                print_list(*list);
-                flag = 0;
-                continue;
-            }
-            my_list = my_list->prev;
-        }
-    }
+		flag = 1;
+		for (; my_list->prev;)
+		{
+			if (my_list->n < my_list->prev->n)
+			{
+				swap_noeuds(list, my_list->prev, my_list);
+				print_list(*list);
+				flag = 0;
+				continue;
+			}
+			my_list = my_list->prev;
+		}
+	}
 }
