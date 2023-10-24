@@ -1,9 +1,9 @@
 #include "sort.h"
 /**
- * swap_noeuds - flag the nodes in a list
- * @list: premier node in doubly linked list
- * @premier: address of premier node
- * @deuxieme: address of deuxieme node
+ * swap_noeuds - flag the noeuds in a list
+ * @list: premier noeud in doubly linked list
+ * @premier: address of premier noeud
+ * @deuxieme: address of deuxieme noeud
  */
 void swap_noeuds(listint_t **list, listint_t *premier, listint_t *deuxieme)
 {
@@ -25,14 +25,14 @@ void swap_noeuds(listint_t **list, listint_t *premier, listint_t *deuxieme)
 /**
  * cocktail_sort_list - application of the cocktail sort algorithm
  * to sort numbers
- * @list: premier node of doubly linked list
+ * @list: premier noeud of doubly linked list
  */
 void cocktail_sort_list(listint_t **list)
 {
 	int flag = 0;
 	listint_t *my_list;
 
-	if (!list || !(*list) || !(*list)->next)
+	if (list == NULL || *list == NULL || !(*list)->next)
 		return;
 
 	my_list = *list;
